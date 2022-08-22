@@ -1,5 +1,12 @@
 class Movement < ApplicationRecord
   belongs_to :product
-  MovementsTypes = { add: 0, remove: 1 }
-  validates :quantity, presence: true, numeracality: true
+  MovementTypes = { add: 0, remove: 1 }
+  validates :quantity, presence: true, numericality: true
+
+  def self.get_movement_types
+    {
+      'Agregar' => MovementTypes[:add],
+      'Quitar' => MovementTypes[:remove]
+    }
+  end
 end
