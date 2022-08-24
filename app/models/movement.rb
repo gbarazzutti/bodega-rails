@@ -9,4 +9,9 @@ class Movement < ApplicationRecord
       'Quitar' => MovementTypes[:remove]
     }
   end
+
+  def movement_type_name
+    return 'Agregar' if movement_type == MovementTypes[:add]
+    return 'Quitar' if movement_type == MovementTypes[:remove]
+  end
 end
