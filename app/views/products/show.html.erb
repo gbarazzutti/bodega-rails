@@ -3,7 +3,7 @@
     <h1>Detalles del producto</h1>
     <%= link_to "Regresar al listado de productos", products_path, class: 'btn btn-primary' %>
     <%= link_to "Editar éste producto", edit_product_path(@product), class: 'btn btn-primary' %>
-    <%= link_to "Eliminar éste producto", @product, method: :delete, class: 'btn btn-danger' %>
+    <%= link_to "Eliminar éste producto", product_path(@product), data: { turbo_method: :delete, turbo_confirm: '¿Está seguro?' }, class: 'btn btn-danger' %>
     <%= link_to "Crear movimiento", new_movement_product_path(@product), class: 'btn btn-success' %>
     <%= link_to "Exportar a excel", product_path(@product, format: :xlsx), class: 'btn btn-success' %>
 
@@ -49,7 +49,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= @product.movements.each do |movement| %>
+          <% @product.movements.each do |movement| %>
             <tr>
               <td><%= movement.movement_type_name %></td>
               <td><%= movement.quantity %></td>

@@ -53,15 +53,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   def new_movement
     @product = Product.find(params[:id])
     @movement = Movement.new
@@ -78,6 +69,14 @@ class ProductsController < ApplicationController
       render :new_movement, status: :unprocessable_entity
     end
   end
+
+  
+  def destroy
+    @product.destroy
+    redirect_to products_path, status: :see_other
+  end
+
+
 
   private
 

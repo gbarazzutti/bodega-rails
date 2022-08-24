@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Product < ApplicationRecord
-  has_many :movements
+  has_many :movements, dependent: :destroy
   validates :name, presence: true
 
   def quantity
