@@ -5,6 +5,8 @@
     <%= link_to "Editar éste producto", edit_product_path(@product), class: 'btn btn-primary' %>
     <%= link_to "Eliminar éste producto", @product, method: :delete, class: 'btn btn-danger' %>
     <%= link_to "Crear movimiento", new_movement_product_path(@product), class: 'btn btn-success' %>
+    <%= link_to "Exportar a excel", product_path(@product, format: :xlsx), class: 'btn btn-success' %>
+
     <div class="card">
       <table class="table">
         <tr>
