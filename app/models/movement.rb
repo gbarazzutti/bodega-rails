@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Movement < ApplicationRecord
   belongs_to :product
   MovementTypes = { add: 0, remove: 1 }

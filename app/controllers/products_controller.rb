@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
@@ -54,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def create_movement
-    @product = Product.find params[:id]
+    @product = Product.find(params[:id])
     @movement = Movement.new(movement_params)
     @movement.product_id = @product.id
     if @movement.save
